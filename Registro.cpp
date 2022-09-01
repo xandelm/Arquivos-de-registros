@@ -46,6 +46,14 @@ const char* Registro::GetNascimento() const{
 	return nascimento;
 }
 
+void Registro::Print() const{
+	cout<<
+	"NOME="<<nome<<
+	";SOBRENOME"<<sobrenome<<
+	";TELEFONE="<<telefone<<
+	";NASCIMENTO="<<nascimento<<endl;
+}
+
 // Registro& Registro::operator=(const Registro& reg){
 // 	strcpy(nome, reg.nome);
 // 	return *this;

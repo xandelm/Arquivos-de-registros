@@ -18,7 +18,7 @@
 # definindo as variáveis do projeto (MAIN é o nome do arquivo principal, que contem a função main, sem a extensao)
 MAIN 	:= main
 # objetos a serem gerados na compilação
-OBJECTS := $(MAIN).o 
+OBJECTS := $(MAIN).o Auxiliar.o Registro.o
 #myFunc1.o myFunc2.o myFunc3.o
 # (para C, pode-se usar o padrão ISO 2011 (c11) ou 2018 (c18), dependendo do seu compilador...
 # usar -std=c98 no lugar do c++11, c++17, c++20, etc.. 
@@ -52,14 +52,19 @@ main.exe: $(OBJECTS)
 	$(CC) $(FLAGS) $(OBJECTS) -o $(OUTPUTMAIN) $(MATH)
 	
 # gerando o arquivo objeto da função principal... adicionar as dependencias (se houverem)
-main.o: $(MAIN).cpp #myFunc1.h myFunc2.h myFunc3.h outros.h
+main.o: $(MAIN).cpp Registro.hpp Auxiliar.hpp #myFunc1.h myFunc2.h myFunc3.h outros.h
 	$(CC) $(FLAGS) -c $(MAIN).cpp
 	
 # gerando o arquivo objeto da minha biblioteca 1 (myFunc1.o) que depende dos arquivos myFunc1.c, myFunc1.h
 #myFunc1.o: myFunc1.cpp myFunc1.h
+Registro.o: Registro.cpp Registro.hpp 
+	$(CC) $(FLAGS) -c Registro.cpp
 #	$(CC) $(FLAGS) -c myFunc1.cpp
 
 # gerando o arquivo objeto da minha biblioteca 2 (myFunc2.o) que depende dos arquivos myFunc2.c, myFunc2.h e myFunc1.h
+Auxiliar.o: Auxiliar.cpp Registro.hpp Auxiliar.hpp 
+	$(CC) $(FLAGS) -c Auxiliar.cpp
+
 #myFunc2.o: myFunc2.cpp myFunc1.h myFunc2.h
 #	$(CC) $(FLAGS) -c myFunc2.cpp
 
