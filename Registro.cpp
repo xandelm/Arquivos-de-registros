@@ -1,57 +1,63 @@
 #include "Registro.hpp"
 #include <string.h>
-//constructors
-Registro::Registro(){
+// constructors
+Registro::Registro()
+{
 	strcpy(nome, "");
 }
-Registro::Registro(const char* nome, const char* sobrenome, const char* telefone, const char* nascimento){
+Registro::Registro(const char *nome, const char *sobrenome, const char *telefone, const char *nascimento)
+{
 	strcpy(this->nome, nome);
 	strcpy(this->sobrenome, sobrenome);
 	strcpy(this->telefone, telefone);
 	strcpy(this->nascimento, nascimento);
 }
-Registro::Registro(const Registro& reg){
+Registro::Registro(const Registro &reg)
+{
 	strcpy(this->nome, reg.nome);
 	strcpy(this->sobrenome, reg.sobrenome);
 	strcpy(this->telefone, reg.telefone);
 	strcpy(this->nascimento, reg.nascimento);
 }
-//setters
-void Registro::SetNome(const char *nome){
+// setters
+void Registro::SetNome(const char *nome)
+{
 	strcpy(this->nome, nome);
 }
-void Registro::SetSobrenome(const char *sobrenome){
+void Registro::SetSobrenome(const char *sobrenome)
+{
 	strcpy(this->sobrenome, sobrenome);
 }
-void Registro::SetTelefone(const char *telefone){
+void Registro::SetTelefone(const char *telefone)
+{
 	strcpy(this->telefone, telefone);
 }
-void Registro::SetNascimento(const char *nascimento){
+void Registro::SetNascimento(const char *nascimento)
+{
 	strcpy(this->nascimento, nascimento);
 }
 
-
-
-//getters
-const char* Registro::GetNome() const{
+// getters
+const char *Registro::GetNome() const
+{
 	return nome;
 }
-const char* Registro::GetSobrenome() const{
+const char *Registro::GetSobrenome() const
+{
 	return sobrenome;
 }
-const char* Registro::GetTelefone() const{
+const char *Registro::GetTelefone() const
+{
 	return telefone;
 }
-const char* Registro::GetNascimento() const{
+const char *Registro::GetNascimento() const
+{
 	return nascimento;
 }
 
-void Registro::Print() const{
-	cout<<
-	"NOME="<<nome<<
-	";SOBRENOME"<<sobrenome<<
-	";TELEFONE="<<telefone<<
-	";NASCIMENTO="<<nascimento<<endl;
+void Registro::Print() const
+{
+	cout << "NOME=" << nome << ";SOBRENOME" << sobrenome << ";TELEFONE=" << telefone << ";NASCIMENTO=" << nascimento << endl;
 }
 
 // Registro& Registro::operator=(const Registro& reg){
@@ -62,13 +68,13 @@ void Registro::Print() const{
 // 	return strcmp(nome, reg.nome) == 0;
 // }
 
-// ostream& operator<<(ostream& out, const Registro& reg)
+// ostream &operator<<(ostream &out, const Registro &reg)
 // {
-// 	out<<reg.nome;
+// 	out << reg.nome;
 // 	return out;
 // }
 
-// istream& operator>>(istream& in, Registro& reg)
+// istream &operator>>(istream &in, Registro &reg)
 // {
 // 	in.getline(reg.nome, TAM_NOME);
 // 	return in;
