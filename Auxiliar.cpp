@@ -42,5 +42,17 @@ void ExibirDados(Registro *dados)
 		dados[i].Print();
     }
     cout<<endl;
+}
+
+void GerarArqTamFixo(Registro *dados, string nomeArqEntrada, string nomeArqSaida){
+    fstream in(nomeArqEntrada, std::ios::in);
+    fstream out(nomeArqSaida, ios_base::binary);
+    AbrirArquivo(in,nomeArqEntrada);
+    //passar td p memoria em dados e dps passar dados p gerar o arquivo de tam fixo usando classe registro
+    //escrever usando write
+    //std::setw ?
+    AbrirArquivo(out,nomeArqSaida);
+
+
 
 }
